@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -10,6 +10,9 @@ class HomeController extends AppController {
         public function stephen() {
             $this->set("title", "About - Stephen");
         }
+				public function ryan() {
+					$this->set("title", "About - Ryan");
+				}
         public function index() {
             $this->set("title", "Home");
         }
