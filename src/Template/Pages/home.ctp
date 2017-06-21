@@ -1,4 +1,4 @@
-<?php $this->assign("title", $title);  ?>
+<?php $this->assign("title", "Home");  ?>
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 

@@ -43,8 +43,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-bar-section">
             <ul class="right">
                 <li><?php echo $this->Html->link('Home', array(
-                    'controller' => 'Home',
-                    'action' => 'index')); ?></li>
+                    'controller' => 'Pages',
+                    'action' => 'home')); ?></li>
             </ul>
         </div>
     </nav>

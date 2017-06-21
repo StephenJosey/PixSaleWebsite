@@ -10,8 +10,5 @@ class HomeController extends AppController {
         public function stephen() {
             $this->set("title", "About - Stephen");
         }
-        public function index() {
-            $this->set("title", "Home");
-        }
 }
 ?>
