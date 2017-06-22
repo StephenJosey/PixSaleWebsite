@@ -7,9 +7,12 @@ class HomeController extends AppController {
 	public function about() {
             $this->set("title", "About");
 	}
-  public function stephen() {
+     public function stephen() {
             $this->set("title", "About - Stephen");
-  }
+     }
+     public function manuel() {
+            $this->set("title", "About - Manuel");
+        }
 
 		public function ryan() {
 			$this->set("title", "About - Ryan");
@@ -17,14 +20,12 @@ class HomeController extends AppController {
         public function Yuezhou() {
 			$this->set("title", "About - Yuezhou");
 		}
-    public function youssef() {
+        public function youssef() {
             $this->set("title", "About - Youssef");
         }
         public function index() {
             $this->set("title", "Home");
         }
-        public function manuel() {
-            $this->set("title", "About - Manuel");
-        }
+        
 }
 ?>
