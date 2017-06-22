@@ -20,6 +20,9 @@ class HomeController extends AppController {
     public function youssef() {
             $this->set("title", "About - Youssef");
         }
+		public function jeremy() {
+			$this->set("title", "About - Jeremy");
+		}
         public function index() {
             $this->set("title", "Home");
         }
