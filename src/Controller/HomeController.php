@@ -16,5 +16,8 @@ class HomeController extends AppController {
         public function index() {
             $this->set("title", "Home");
         }
+        public function manuel() {
+            $this->set("title", "About - Manuel");
+        }
 }
 ?>
