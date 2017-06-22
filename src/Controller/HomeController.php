@@ -13,7 +13,7 @@ class HomeController extends AppController {
 		public function ryan() {
 			$this->set("title", "About - Ryan");
         }    
-        public function ryan() {
+        public function Yuezhou() {
 			$this->set("title", "About - Yuezhou");
 		}
         public function index() {
