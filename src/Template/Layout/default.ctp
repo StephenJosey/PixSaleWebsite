@@ -47,6 +47,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     'action' => 'home')); ?></li>
             </ul>
         </div>
+        
+    </nav>
+    <nav class="large-3 medium-4 columns" id="actions-sidebar" style="margin-bottom:0px; padding-bottom:0px;">
+        <ul class="side-nav">
+                <li class="heading"><?= __('Where do you want to go?') ?></li>
+                <li><?= $this->Html->link(__('About Us'), ['controller' => 'Home', 'action' => 'about']) ?></li>
+        </ul>
     </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">

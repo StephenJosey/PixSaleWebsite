@@ -1,4 +1,12 @@
 <?php $this->assign("title", $title);  ?>
+<div class="search-frm" style="width:40%">
+    <?php echo $this->Form->create($searchForm, ['type' => 'post']); ?>
+    	<?php echo $this->Form->select('type', ["image", "video", "audio"]); ?>
+    	<?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control']); ?>
+        <?php echo $this->Form->button(__('Search'), ['type'=>'submit', 'class' => 'form-controlbtn btn-default']); ?>
+    <?php echo $this->Form->end(); ?>
+</div>
+
 <div>
 	<table style="width:75%; height:100%">
 	<?php $count = 0; ?>
