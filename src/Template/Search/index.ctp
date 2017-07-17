@@ -33,10 +33,9 @@
 		  	echo "'$file_name'";
 		  ?> width="100%" height="100%"/>
 		</td>
-		<?php if ($count > 5) {
+		<?php if ($count >= 5) {
 				echo "</tr>";
 				$count = 0;
-				echo "<tr>";
 			}
 		?>
 		<?php endforeach; ?>
