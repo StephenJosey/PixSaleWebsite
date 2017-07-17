@@ -13,7 +13,8 @@
 
 <div>
 	Sort by <?= $this->Paginator->sort('price') ?><br>
-	<table style="width:75%; height:100%" class="pictures">
+	<?php $size = 20 * (sizeof($items) % 5) ?>
+	<table style="width: <?= $size ?>%; height:100%; table-layout: fixed" class="pictures">
 	<?php $count = 0; ?>
 		<tr>
 		<?php foreach ($items as $item): ?>
@@ -23,7 +24,7 @@
 				echo "<tr>";
 			}
 		?>
-		<td style="width:25%">
+		<td style="width:20%; max-width: 20%">
 		  <?= $item->title ?></br>
 		  <?= "$".$item->price ?></br>
 		  <?= $item->description ?></br>
