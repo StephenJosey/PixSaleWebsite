@@ -13,7 +13,9 @@
 
 <div>
 	Sort by <?= $this->Paginator->sort('price') ?><br>
-	<?php $size = 20 * (sizeof($items) % 5) ?>
+	<?php $size = 20 * (sizeof($items) % 5);
+		if (sizeof($items) > 5)
+			$size = 100; ?>
 	<table style="width: <?= $size ?>%; height:100%; table-layout: fixed" class="pictures">
 	<?php $count = 0; ?>
 		<tr>
