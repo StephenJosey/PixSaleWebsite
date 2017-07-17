@@ -45,6 +45,10 @@ class UploadController extends AppController
 				
 			}	
         }
+        $categories = TableRegistry::get('Categories');
+        $categories = $categories->find('list', array( 
+            'fields' => array('id', 'category_name')));
+        $this->set(compact('categories'));
 		
         $this->set('uploadData', $uploadData);
     }
