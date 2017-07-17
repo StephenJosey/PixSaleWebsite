@@ -13,7 +13,9 @@ class SearchController extends AppController {
         if ($this->request->is('post')) {
             if(!empty($this->request->data['search'])){
             	$search = $this->request->data['search'];
-            	$items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%"]);
+            	$type = $this->request->data['type']['name'];
+            	echo $type;
+            	$items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%", 'Media_Items.media_type' => $type]);
             }
             else {
             	$items = $items->find('all');
