@@ -34,7 +34,7 @@ class UploadController extends AppController
                         'price' => $this->request->data['price'],
                         'media_type' => 'image',
                         'description' => $this->request->data['description'],
-                        'category' => $this->request->data['category'],
+                        'category_id' => $this->request->data['category'],
                         'file_path' => $this->request->data['file']['name']
                     ]);
                     TableRegistry::get('Media_Items')->save($item);
