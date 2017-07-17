@@ -7,7 +7,7 @@ use Cake\ORM\TableRegistry;
 class SearchController extends AppController {
 
     public $paginate = [
-        'limit' => 8,
+        'limit' => 10,
     ];
 
     public function loadCategories() {
