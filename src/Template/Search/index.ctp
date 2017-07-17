@@ -36,6 +36,7 @@
 		<?php if ($count > 5) {
 				echo "</tr>";
 				$count = 0;
+				echo "<tr>";
 			}
 		?>
 		<?php endforeach; ?>
