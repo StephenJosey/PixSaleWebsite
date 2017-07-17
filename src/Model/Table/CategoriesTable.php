@@ -33,7 +33,7 @@ class CategoriesTable extends Table
         parent::initialize($config);
 
         $this->setTable('categories');
-        $this->setDisplayField('id');
+        $this->setDisplayField('category_name');
         $this->setPrimaryKey('id');
 
         $this->hasMany('MediaItems', [
