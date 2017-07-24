@@ -2,7 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * RegisteredUser Entity
  *
@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\MediaItem[] $media_items
  */
+ 
+ 
 class RegisteredUser extends Entity
 {
 
@@ -31,4 +33,10 @@ class RegisteredUser extends Entity
         '*' => true,
         'id' => false
     ];
+	
+	protected function _setPass($password){
+		if (strlen($password) > 0) {
+          return (new DefaultPasswordHasher)->hash($password);
+        }
+	}
 }

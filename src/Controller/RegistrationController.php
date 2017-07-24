@@ -11,11 +11,14 @@ use Cake\Auth\DefaultPasswordHasher;
 class RegistrationController extends AppController{
 	//Hashes password.Authentiction uses DefaultPasswordHasher
 	//Reference: https://book.cakephp.org/3.0/en/controllers/components/authentication.html#hashing-passwords-for-digest-authentication	
+	
+	/*
 	protected function _setPassword($password){
 		if (strlen($password) > 0) {
           return (new DefaultPasswordHasher)->hash($password);
         }
 	}
+	*/
 	
 	
 	public function index(){
@@ -30,8 +33,8 @@ class RegistrationController extends AppController{
 					'first_name' for first name
 					'last_name' for last name
 			*/
-			$username = $this->request->data('username'); // 
-			$password = $this->_setPassword($this->request->data('password'));
+			$username = $this->request->data('username'); 
+			$password = $this->request->data('password');
 			$email = $this->request->data('email');
 			$first_name = $this->request->data('first_name');
 			$last_name = $this->request->data('last_name');
