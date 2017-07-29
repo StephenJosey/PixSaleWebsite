@@ -16,34 +16,49 @@
 	<?php $size = (20 * sizeof($items) % 100);
 		if (sizeof($items) >= 5)
 			$size = 100; ?>
-	<table style="width: <?= $size ?>%; height:100%; table-layout: fixed" class="pictures">
+	<div class="container">
+    
 	<?php $count = 0; ?>
-		<tr>
+		<div class="row">
 		<?php foreach ($items as $item): ?>
 		<?php 
 			$count = $count + 1;
 			if ($count > 5) {
-				echo "<tr>";
+				echo "<div class='row>'";
 			}
 		?>
-		<td style="width:20%; max-width: 20%">
-		  <?= $item->title ?></br>
-		  <?= "$".$item->price ?></br>
-		  <?= $item->description ?></br>
-		  <img src=
-		  <?php 
-		  	$file_name = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$item->file_path;
-		  	echo "'$file_name'";
-		  ?> width="100%" height="100%"/>
-		</td>
+		<div class="col-sm-4 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <img src=
+			  <?php 
+			  	$file_name = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$item->file_path;
+			  	echo "'$file_name'";
+			  ?> width="100%" height="100%"/>
+            <div class="productMasking">
+              <ul class="list-inline btn-group" role="group">
+                <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
+                <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
+                <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="productCaption clearfix">
+            <a href="single-product.html">
+              <h5><?= $item->title ?></h5>
+            </a>
+            <h3><?= "$".$item->price ?></h3>
+          </div>
+        </div>
+      </div>
 		<?php if ($count >= 5) {
-				echo "</tr>";
+				echo "</div>";
 				$count = 0;
 			}
 		?>
 		<?php endforeach; ?>
-		</tr>
-	</table>
+		</div>
+	</div>
 	<div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
