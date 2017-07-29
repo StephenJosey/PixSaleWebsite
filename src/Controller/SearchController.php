@@ -22,19 +22,31 @@ class SearchController extends AppController {
         $this->set("title", "Search");
         $searchForm = "";
         $items = TableRegistry::get('Media_Items');
-        if ($this->request->is('post')) {
-            if(!empty($this->request->data['search'] || !empty($this->request->data['category']))) {
-            	$search = $this->request->data['search'];
-                $category = $this->request->data['category'];
-                if ($category != null) {
-                    $items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%", 'Media_Items.category_id' => $category]);
-                }
-                else {
-                    $items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%"]);
-                }
-            	
+        if ($this->request->is('post')) 
+        {
+            $search = $this->request->data['search'];
+            $category = $this->request->data['category'];
+            $image = $this->request->data['image'] == 'N' ? '' : $this->request->data['image'];
+            $video = $this->request->data['video'] == 'N' ? '' : $this->request->data['video'];
+            $audio = $this->request->data['audio'] =='N' ? '' : $this->request->data['audio'];
+            if(!empty($search) || !empty($category) || !empty($image) || !empty($video) || !empty($audio)) {
+                $searchWhere = (!$search) ? '1' : '%'.$search.'%';
+                $search = (!$search) ? '1' : 'title LIKE';
+                $categoryWhere = (!$category) ? '1' : $category;
+                $category = (!$category) ? '1' : 'category_id';
+                $imageWhere = (!$image) ? '1' : $image;
+                $mediaType = (!empty($image) || !empty($video) || !empty($audio) ) ? 'media_type' : '1';
+                $image = (!$image) ? '1' : 'media_type';
+                $videoWhere = (!$video) ? '1' : $video;
+                $audioWhere = (!$audio) ? '1' : $audio;
+                $items = $items->find('all')->where([$search => $searchWhere, 
+                    $category => $categoryWhere,
+                    'OR' => [ [$mediaType => $imageWhere],
+                              [$mediaType => $audioWhere],
+                              [$mediaType => $videoWhere],
+                    ]]);
             }
-            else {
+             {
             	$items = $items->find('all');
             }
         }

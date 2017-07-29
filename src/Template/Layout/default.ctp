@@ -88,18 +88,36 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <!-- NAV TOP -->
     <?php echo $this->Form->create($searchForm, ['type' => 'post', 'class' => 'navTop text-center', 'url' => ['controller' => 'Search', 'action' => 'index']]); ?>
       <div class="container">
-        <div class="navTop-middle">
-            <div class="filterArea hidden-xs hidden-sm">
-                <?php echo $this->Form->select('type', ["image", "video", "audio"], [ "class" => "select-drop"]); ?></div>
+        <div class="navTop-middle" style="width:80%;">
             <div class="filterArea hidden-xs hidden-sm">
                 <?php echo $this->Form->input('category', ['type' => 'select', 'options' => $categories, "class" => "select-drop", "empty" => "Choose one..."
-                    , 'label' => false] ); ?></div>
+                    , 'label' => false] ); ?>
+                </div>
+            <div class="searchBox">
                 <span class="input-group">
                     <?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control', 'label' => false]); ?>
                     <?php echo $this->Form->button(__("<i class='fa fa-search'></i>"), ['type'=>'submit', 'class' => 'input-group-addon']); ?>
                 </span>
             </div>
-       </div>
+            <div style="float:left;">
+                <?php echo $this->Form->label('image', 'Image', ['class' => 'left-align']); ?> <?php echo $this->Form->checkbox('image', [
+                      'value' => 'image',
+                      'hiddenField' => 'N',
+                      'style' => 'text-align:left;',
+                      ]); ?>
+                <?php echo $this->Form->label('video', 'Video', ['class' => 'left-align']); ?> <?php echo $this->Form->checkbox('video', [
+                      'value' => 'video',
+                      'hiddenField' => 'N',
+                      'style' => 'text-align:left;',
+                      ]); ?>
+                <?php echo $this->Form->label('audio', 'Audio', ['class' => 'left-align']); ?> <?php echo $this->Form->checkbox('audio', [
+                      'value' => 'audio',
+                      'hiddenField' => 'N',
+                      'style' => 'text-align:left;',
+                      ]); ?>
+            </div>
+          </div>
+      </div>
     <?php echo $this->Form->end(); ?>
 
         <!-- NAVBAR -->

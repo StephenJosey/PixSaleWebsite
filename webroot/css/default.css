@@ -253,4 +253,8 @@
 #signup .modal-dialog .modal-content .modal-body .btn-link:hover {
   color: #4dc8cf; }
 
+.left-align {
+  text-align: left !important;
+}
+
 /*# sourceMappingURL=default.css.map */
