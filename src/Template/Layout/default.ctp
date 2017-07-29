@@ -27,35 +27,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
 
 
-
+     <?php $app_root = dirname($_SERVER['SCRIPT_NAME']);?>
      <!-- PLUGINS CSS STYLE -->
-    <link href="/CS648_17/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
-    <link href="/CS648_17/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/CS648_17/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/CS648_17/plugins/selectbox/select_option1.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/CS648_17/plugins/rs-plugin/css/settings.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/CS648_17/plugins/owl-carousel/owl.carousel.css" media="screen">
+    <link href="<?= $app_root?> /plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="<?= $app_root?>/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $app_root?>/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?= $app_root?>/plugins/selectbox/select_option1.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= $app_root?>/plugins/rs-plugin/css/settings.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="<?= $app_root?>/plugins/owl-carousel/owl.carousel.css" media="screen">
 
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 
     <!-- CUSTOM CSS -->
-    <link href="/CS648_17/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/CS648_17/css/default.css" id="option_color">
+    <link href="<?= $app_root?>/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= $app_root?>/css/default.css" id="option_color">
 
     <!-- Icons -->
     <link rel="shortcut icon" href="/CS648_17/img/favicon.png">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/CS648_17/plugins/jquery-ui/jquery-ui.js"></script>
-    <script src="/CS648_17/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/CS648_17/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script src="/CS648_17/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="/CS648_17/plugins/owl-carousel/owl.carousel.js"></script>
-    <script src="/CS648_17/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-    <script src="/CS648_17/plugins/countdown/jquery.syotimer.js"></script>
-    <script src="/CS648_17/js/custom.js"></script>
+    <script src="<?= $app_root?>/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="<?= $app_root?>/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= $app_root?>/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="<?= $app_root?>/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="<?= $app_root?>/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="<?= $app_root?>/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+    <script src="<?= $app_root?>/plugins/countdown/jquery.syotimer.js"></script>
+    <script src="<?= $app_root?>/js/custom.js"></script>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
