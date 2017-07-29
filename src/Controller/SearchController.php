@@ -51,6 +51,15 @@ class SearchController extends AppController {
         $this->set(compact('categories'));
     }
 
+    public function singleProduct(int $id) {
+        $this->set("title", "View Product");
+        $items = TableRegistry::get('Media_Items');
+        $item = $items->get($id);
+
+        $this->set('item', $item);
+    }
+
+
 
     
 }

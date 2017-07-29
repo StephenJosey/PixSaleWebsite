@@ -66,7 +66,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       <!-- HEADER -->
       <div class="header clearfix">
 
-        <!-- TOPBAR -->
+         <!-- TOPBAR -->
         <div class="topBar">
           <div class="container">
             <div class="row">
@@ -78,7 +78,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               </div>
               <div class="col-md-6 col-sm-7 col-xs-12">
                 <ul class="list-inline pull-right top-right">
-                  <li class="account-login"><span><a data-toggle="modal" href='#login'>Log in</a><small>or</small><a data-toggle="modal" href='#signup'>Create an account</a></span></li>
+                  <li class="account-login"><span><a data-toggle="modal" href='.login-modal'>Log in</a><small>or</small><a data-toggle="modal" href='#signup'>Create an account</a></span></li>
                 </ul>
               </div>
             </div>
@@ -102,30 +102,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
        </div>
     <?php echo $this->Form->end(); ?>
 
-    <!-- NAVBAR -->
-        <nav class="navbar navbar-main navbar-default nav-V3" role="navigation">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-main navbar-default" role="navigation">
           <div class="container">
-
-           <div class="nav-category dropdown">
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Categories
-                <button type="button">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-left">
-                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Animals</a></li>
-                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Beach</a></li>
-                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Cars</a></li>
-                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Cities</a></li>
-                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Flowers</a></li>
-                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Graffiti</a></li>
-                <li><a href="product-grid-3-col.html"><img src="img/home/category/category-img1.jpg" alt="Image"></a></li>
-              </ul>
-            </div>
-
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -133,6 +113,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+              <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -187,6 +168,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </nav>
 
       </div>
+
+            <!-- LIGHT SECTION -->
+      <section class="lightSection clearfix pageHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="page-title">
+                <h2><?= $this->fetch('title') ?></h2>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <ol class="breadcrumb pull-right">
+                <li>
+                  <a href="index-v4.html">Home</a>
+                </li>
+                <li class="active">About Us</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
 
   

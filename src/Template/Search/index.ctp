@@ -1,8 +1,4 @@
 <?php $this->assign("title", $title);  ?>
-
-<div style="text-align:center" class="container">
-        <div class="bannercontainer bannerV4">
-          <div class="fullscreenbanner-container">
 <section class="mainContent clearfix productsContent">
 		Sort by <?= $this->Paginator->sort('price') ?><br>
 		<?php $size = (20 * sizeof($items) % 100);
@@ -30,7 +26,9 @@
 	            <div class="productMasking">
 	              <ul class="list-inline btn-group" role="group">
 	                <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-	                <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
+	                <li><?= $this->Html->link(__(""), ['controller' => 'Search', 'action' => 'singleProduct', $item->id], 
+                  		['class' => 'btn btn-default fa fa-eye']) ?>
+	                </li>
 	              </ul>
 	            </div>
 	          </div>
@@ -61,6 +59,3 @@
 	        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
 	    </div>
 </section>
-</div>
-</div>
-</div>
