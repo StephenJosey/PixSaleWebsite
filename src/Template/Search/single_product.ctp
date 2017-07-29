@@ -33,8 +33,7 @@
             </div>
             <div class="media-body">
               <ul class="list-inline">
-                <li><a href="index.html"><i class="fa fa-reply" aria-hidden="true"></i>Continue Shopping</a></li>
-                <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Share This</a></li>
+                <li><a href=".."><i class="fa fa-reply" aria-hidden="true"></i>Continue Shopping</a></li>
               </ul>
               <h2><?php echo "$item->title" ?></h2>
               <h3><?php echo "$$item->price" ?></h3>

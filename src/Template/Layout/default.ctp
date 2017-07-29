@@ -182,9 +182,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                    
                     <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'profile'])?></li>
                     <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'index'])?></li>
-                   
-                    
-                    
                   </ul>
                 </li>
                 
