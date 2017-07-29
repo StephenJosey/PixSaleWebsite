@@ -119,41 +119,69 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav">
-                <li class="dropdown active">
+                <li <?php 
+                        if ($this->request->params['controller'] == "Home" && $this->request->params['action'] == "index") {
+                          echo "class='dropdown active'";
+                        }
+                        else {
+                          echo "class='dropdown'";
+                        }
+                    ?> >
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                   <ul class="dropdown-menu dropdown-menu-left">
-                   
-                    <li class="active"><a href="index-v4.html">HomePage</a></li>
+                    
+                    <li><?= $this->Html->link(__("Home"), ['controller' => 'Home', 'action' => 'index'])?></li>
                   </ul>
                 </li>
               
                 
-                   <li class="dropdown active">
+                   <li <?php 
+                        if ($this->request->params['controller'] == "Search" && $this->request->params['action'] == "index") {
+                          echo "class='dropdown active'";
+                        }
+                        else {
+                          echo "class='dropdown'";
+                        }
+                    ?> >
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
                   <ul class="dropdown-menu dropdown-menu-left">
                    
-                    <li class="active"><a href="product-grid-3-col.html">Multimedia</a></li>
+                    <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?></li>
                   </ul>
                 </li>
                 
                 
-                <li class="dropdown">
+                <li <?php 
+                        if ($this->request->params['controller'] == "Home" && ($this->request->params['action'] == "terms" || $this->request->params['action'] == "about")) {
+                          echo "class='dropdown active'";
+                        }
+                        else {
+                          echo "class='dropdown'";
+                        }
+                    ?> >
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">information</a>
                   <ul class="dropdown-menu dropdown-menu-left">
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                    <li><?= $this->Html->link(__("About Us"), ['controller' => 'Home', 'action' => 'about'])?></li>
+                    <li><?= $this->Html->link(__("Terms and Conditions"), ['controller' => 'Home', 'action' => 'terms'])?></li>
                     
 
                     
                   </ul>
                 </li>
                
-                <li class="dropdown">
+                <li <?php 
+                        if ($this->request->params['controller'] == "User") {
+                          echo "class='dropdown active'";
+                        }
+                        else {
+                          echo "class='dropdown'";
+                        }
+                    ?> >
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account</a>
                   <ul class="dropdown-menu dropdown-menu-right">
                    
-                    <li><a href="account-profile.html">Profile</a></li>
-                    <li><a href="account-all-orders.html">All Orders</a></li>
+                    <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'profile'])?></li>
+                    <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'index'])?></li>
                    
                     
                     
@@ -181,9 +209,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="col-xs-6">
               <ol class="breadcrumb pull-right">
                 <li>
-                  <a href="index-v4.html">Home</a>
+                  <?= $this->Html->link(__("Home"), ['controller' => 'Home', 'action' => 'index'])?>
                 </li>
-                <li class="active">About Us</li>
+                <li class="active"><?= $this->fetch('title') ?></li>
               </ol>
             </div>
           </div>

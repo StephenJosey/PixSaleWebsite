@@ -29,13 +29,9 @@ class HomeController extends AppController {
     public function index() {
         $this->set("title", "Home");
     }
-
-    public function search() {
-        $this->set("title", "Search");
-        $items = TableRegistry::get('Media_Items');
-        $items = $items->find('all');
-        $this->set('items', $items);
+    
+    public function terms() {
+        $this->set("title", "Terms and Conditions");
     }
-        
 }
 ?>
