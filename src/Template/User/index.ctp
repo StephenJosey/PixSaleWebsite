@@ -53,7 +53,7 @@
                           <td>'. $product->id . '</td>
 						  <td>'. $product->title . '</td>
                           <td> $ '.$product->price. '</td>
-						  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail" style = "height:100px;"></td> 
+						  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail" style = "height:100px;width:150px;"></td> 
                         </tr>';
 						}
 						?>
