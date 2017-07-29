@@ -26,7 +26,13 @@ class SearchController extends AppController {
             if(!empty($this->request->data['search'] || !empty($this->request->data['category']))) {
             	$search = $this->request->data['search'];
                 $category = $this->request->data['category'];
-            	$items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%", 'Media_Items.category_id' => $category]);
+                if ($category != null) {
+                    $items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%", 'Media_Items.category_id' => $category]);
+                }
+                else {
+                    $items = $items->find('all')->where(['Media_Items.title LIKE' => "%".$search."%"]);
+                }
+            	
             }
             else {
             	$items = $items->find('all');
@@ -44,6 +50,7 @@ class SearchController extends AppController {
             'fields' => array('id', 'category_name')));
         $this->set(compact('categories'));
     }
+
 
     
 }

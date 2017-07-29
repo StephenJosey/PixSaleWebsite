@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -83,6 +84,13 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+
+        $searchForm = "";
+        $this->set('searchForm', $searchForm);
+        $categories = TableRegistry::get('Categories');
+        $categories = $categories->find('list', array( 
+            'fields' => array('id', 'category_name')));
+        $this->set(compact('categories'));
     }
 
     public function beforeFilter(Event $event)

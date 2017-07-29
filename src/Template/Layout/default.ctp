@@ -29,33 +29,33 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
      <!-- PLUGINS CSS STYLE -->
-    <link href="/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
-    <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/plugins/selectbox/select_option1.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/plugins/rs-plugin/css/settings.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/plugins/owl-carousel/owl.carousel.css" media="screen">
+    <link href="/CS648_17/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="/CS648_17/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/CS648_17/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/CS648_17/plugins/selectbox/select_option1.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/CS648_17/plugins/rs-plugin/css/settings.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/CS648_17/plugins/owl-carousel/owl.carousel.css" media="screen">
 
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 
     <!-- CUSTOM CSS -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/default.css" id="option_color">
+    <link href="/CS648_17/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/CS648_17/css/default.css" id="option_color">
 
     <!-- Icons -->
     <link rel="shortcut icon" href="/CS648_17/img/favicon.png">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/plugins/jquery-ui/jquery-ui.js"></script>
-    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script src="/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="/plugins/owl-carousel/owl.carousel.js"></script>
-    <script src="/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-    <script src="/plugins/countdown/jquery.syotimer.js"></script>
-    <script src="/js/custom.js"></script>
+    <script src="/CS648_17/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="/CS648_17/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/CS648_17/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="/CS648_17/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="/CS648_17/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="/CS648_17/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+    <script src="/CS648_17/plugins/countdown/jquery.syotimer.js"></script>
+    <script src="/CS648_17/js/custom.js"></script>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -85,10 +85,47 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           </div>
         </div>
 
-     <!-- NAVBAR -->
-        <nav class="navbar navbar-main navbar-default" role="navigation">
+    <!-- NAV TOP -->
+    <?php echo $this->Form->create($searchForm, ['type' => 'post', 'class' => 'navTop text-center', 'url' => ['controller' => 'Search', 'action' => 'index']]); ?>
+      <div class="container">
+        <div class="navTop-middle">
+            <div class="filterArea hidden-xs hidden-sm">
+                <?php echo $this->Form->select('type', ["image", "video", "audio"], [ "class" => "select-drop"]); ?></div>
+            <div class="filterArea hidden-xs hidden-sm">
+                <?php echo $this->Form->input('category', ['type' => 'select', 'options' => $categories, "class" => "select-drop", "empty" => "Choose one..."
+                    , 'label' => false] ); ?></div>
+                <span class="input-group">
+                    <?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control', 'label' => false]); ?>
+                    <?php echo $this->Form->button(__("<i class='fa fa-search'></i>"), ['type'=>'submit', 'class' => 'input-group-addon']); ?>
+                </span>
+            </div>
+       </div>
+    <?php echo $this->Form->end(); ?>
+
+    <!-- NAVBAR -->
+        <nav class="navbar navbar-main navbar-default nav-V3" role="navigation">
           <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
+           <div class="nav-category dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Categories
+                <button type="button">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-left">
+                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Animals</a></li>
+                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Beach</a></li>
+                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Cars</a></li>
+                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Cities</a></li>
+                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Flowers</a></li>
+                <li><a href="product-grid-3-col.html"><i class="lnr lnr-camera" aria-hidden="true"></i>Graffiti</a></li>
+                <li><a href="product-grid-3-col.html"><img src="img/home/category/category-img1.jpg" alt="Image"></a></li>
+              </ul>
+            </div>
+
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -96,7 +133,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -154,27 +190,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
   
-      <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="page-title">
-                <h2>log in</h2>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <ol class="breadcrumb pull-right">
-                <li>
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="active">log in</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
 
+    <!-- BODY -->
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
@@ -189,23 +206,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <h3 class="modal-title">log in</h3>
           </div>
           <div class="modal-body">
-            <form action="" method="POST" role="form">
-              <div class="form-group">
-                <label for="">Enter Email</label>
-                <input type="text" class="form-control" id="">
-              </div>
-              <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" class="form-control" id="">
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember Me
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">log in</button>
-              <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-            </form>
+              <?php echo $this->Form->create(null, ['class' => 'form-group', 'type' => 'post', 'url' => ['controller' => 'Login', 'action' => 'index']]); ?>
+                    <?php echo $this->Form->input('username', ['type' => 'text', "class" => "form-control",
+                                'templates' => ['inputContainer' => '{{content}}']] ); ?>
+                    <?php echo $this->Form->input('pass', ['type' => 'password',
+                                'templates' => ['inputContainer' => '{{content}}'], 'class' => 'form-control', 'label' => 'Password']); ?>
+                    <br>
+                    <?php echo $this->Form->button(__('Login'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?>
+              <?php echo $this->Form->end(); ?>
           </div>
         </div>
       </div>
@@ -220,21 +228,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <h3 class="modal-title">Create an account</h3>
           </div>
           <div class="modal-body">
-            <form action="" method="POST" role="form">
-              <div class="form-group">
-                <label for="">Enter Email</label>
-                <input type="email" class="form-control" id="">
-              </div>
-              <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" class="form-control" id="">
-              </div>
-              <div class="form-group">
-                <label for="">Confirm Password</label>
-                <input type="password" class="form-control" id="">
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Sign up</button>
-            </form>
+            <?php echo $this->Form->create(null, ['class' => 'form-group', 'type' => 'post', 'url' => ['controller' => 'Registration', 'action' => 'index']]); ?>
+                    <?php echo $this->Form->input('username', ['type' => 'text', "class" => "form-control",
+                                'templates' => ['inputContainer' => '{{content}}']] ); ?>
+                    <?php echo $this->Form->input('pass', ['type' => 'password',
+                                'templates' => ['inputContainer' => '{{content}}'], 'class' => 'form-control', 'label' => 'Password']); ?>
+                    <?php echo $this->Form->input('email', ['type' => 'text', "class" => "form-control",
+                                'templates' => ['inputContainer' => '{{content}}']] ); ?>
+                    <?php echo $this->Form->input('first_name', ['type' => 'text', "class" => "form-control",
+                                'templates' => ['inputContainer' => '{{content}}'] , 'label' => 'First Name'] ); ?>
+                    <?php echo $this->Form->input('last_name', ['type' => 'text', "class" => "form-control", 
+                                'templates' => ['inputContainer' => '{{content}}'] , 'label' => 'Last Name'] ); ?>                        
+                    <br>
+                    <?php echo $this->Form->button(__('Register'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?>
+            <?php echo $this->Form->end(); ?>
           </div>
         </div>
       </div>
@@ -249,7 +256,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <div class="media">
               <div class="media-left">
-                <img class="media-object" src="img/products/quick-view/quick-view-01.jpg" alt="Image">
+                <img class="media-object" src= <?php echo "'$src'"; ?> alt="Image">
               </div>
               <div class="media-body">
                 <h2>Old Skool Navy</h2>
@@ -280,6 +287,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
       </div>
     </div>
+
+
     <?= $this->Flash->render() ?>
     <footer>
                 <!-- COPY RIGHT -->

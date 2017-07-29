@@ -1,27 +1,16 @@
 <div id = "registration_form">
-<?php 
-	echo $this->Form->create();
-	echo $this->form->label('username', 'Username');
-	echo $this->form->text('username');
-	
-	echo $this->form->label('pass', 'Password');
-	echo $this->form->password('password');
-	
-	echo $this->form->label('email', 'Email');
-	echo $this->form->text('email');
-	
-	echo $this->form->label('first_name', 'First Name');
-	echo $this->form->text('first_name');
-	
-	
-	echo $this->form->label('last_name', 'Last Name');
-	echo $this->form->text('last_name');
-	
-	echo $this->Form->submit('Create Account');
-	echo $this->Form->end();
-	
-	
-	
-	
-?>
+<?php echo $this->Form->create(null, ['class' => 'form-group', 'type' => 'post', 'url' => ['controller' => 'Registration', 'action' => 'index']]); ?>
+    <?php echo $this->Form->input('username', ['type' => 'text', "class" => "form-control",
+                'templates' => ['inputContainer' => '{{content}}']] ); ?>
+    <?php echo $this->Form->input('pass', ['type' => 'password',
+                'templates' => ['inputContainer' => '{{content}}'], 'class' => 'form-control', 'label' => 'Password']); ?>
+    <?php echo $this->Form->input('email', ['type' => 'text', "class" => "form-control",
+                'templates' => ['inputContainer' => '{{content}}']] ); ?>
+    <?php echo $this->Form->input('first_name', ['type' => 'text', "class" => "form-control",
+                'templates' => ['inputContainer' => '{{content}}'] , 'label' => 'First Name'] ); ?>
+    <?php echo $this->Form->input('last_name', ['type' => 'text', "class" => "form-control", 
+                'templates' => ['inputContainer' => '{{content}}'] , 'label' => 'Last Name'] ); ?>                        
+    <br>
+    <?php echo $this->Form->button(__('Register'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?>
+<?php echo $this->Form->end(); ?>
 </div>
