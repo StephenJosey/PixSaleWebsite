@@ -15,7 +15,7 @@ class UserController extends AppController{
 		$this->loadModel('Messages');
 		$this->loadModel('MediaItems');
 		$messages  = $this->Messages->find('all')->where(['Messages.id' => $user_id]);
-		$products = $this->MediaItems->find('all');
+		$products = $this->MediaItems->find('all')->where(['MediaItems.registered_user_id' => $user_id]);
 		//send data to index.ctp
 		$this->set(compact('messages'));
 		$this->set(compact('products'));

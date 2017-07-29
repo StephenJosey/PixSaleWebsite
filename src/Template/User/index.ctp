@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>All Orders - BIGBAG Store</title>
 
  
 
@@ -17,27 +16,6 @@
     <div class="main-wrapper">
 
       
-
-      <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="page-title">
-                <h2>ALL ORDERS</h2>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <ol class="breadcrumb pull-right">
-                <li>
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="active">ALL ORDERS</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- MAIN CONTENT SECTION -->
       <section class="mainContent clearfix userProfile">
