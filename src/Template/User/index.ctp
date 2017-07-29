@@ -24,9 +24,11 @@
             <div class="col-xs-12">
               <div class="btn-group" role="group" aria-label="...">
                 
-                <a href="account-profile.html" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+				<!--<?= $this->Html->link(__('Profile'),['controller' => 'User', 'action' => 'profile', 'class' => 'btn btn-default']); ?> -->
+                <a href="/User/profile" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                
-                <a href="account-all-orders.html" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>All Orders</a>
+                 <a href="/User/index" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>All Products</a>
+				<!-- <?= $this->Html->link(__('All Products'),['controller' => 'User', 'action' => 'index', 'class' => 'btn btn-default']); ?> -->
                 
               </div>
             </div>
@@ -53,7 +55,7 @@
                           <td>'. $product->id . '</td>
 						  <td>'. $product->title . '</td>
                           <td> $ '.$product->price. '</td>
-						  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail" style = "height:100px;width:150px;"></td> 
+						  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail img-fluid" style = "height:100px;width:150px;"></td> 
                         </tr>';
 						}
 						?>
