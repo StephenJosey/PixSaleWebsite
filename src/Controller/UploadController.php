@@ -23,8 +23,7 @@ class UploadController extends AppController
     public function index(){
         $uploadData = '';
         if ($this->Auth->user('id') == null) {
-            $this->redirect(['controller' => 'Search', 'action' => 'index']);
-            return;
+            return $this->redirect(['controller' => 'Login', 'action' => 'index']);
         }
         if ($this->request->is('post')) {
             if(!empty($this->request->data['file']['name'])){

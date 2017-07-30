@@ -52,7 +52,7 @@ class UserController extends AppController{
 	   Handles the profile page
 	*/
 	public function messages(){
-		if($this->Auth->user('id'))}
+		if($this->Auth->user('id')){
 			$user_id = $this->Auth->user('id');
 		
 			$messages= TableRegistry::get('Messages');
@@ -78,7 +78,7 @@ class UserController extends AppController{
 							
 			$this->set(compact('orders'));
 		}else{
-				return $this->redirect(['controller' => 'login', 'action' => 'index']);
+			return $this->redirect(['controller' => 'login', 'action' => 'index']);
 		}		
 											
 		
