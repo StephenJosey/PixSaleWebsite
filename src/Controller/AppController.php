@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -45,6 +46,10 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
+                'controller' => 'Search',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
                 'controller' => 'Search',
                 'action' => 'index'
             ],
@@ -83,6 +88,24 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+
+        $searchForm = "";
+        $this->set('searchForm', $searchForm);
+        $categories = TableRegistry::get('Categories');
+        $categories = $categories->find('list', array( 
+            'fields' => array('id', 'category_name')));
+        $this->set(compact('categories'));
+
+        if ($this->Auth->user()) {
+            $loginText = "<li class='account-login'><span style='color:white;'>Welcome ".$this->Auth->user('first_name').
+                            "<a href='/Login/logout'>Log out</a></span></li>";
+            //echo $this->Html->link(__("Log out"), ['controller' => 'Login', 'action' => 'logout']);
+
+        }
+        else {
+            $loginText = "<li class='account-login'><span><a data-toggle='modal' href='#login'>Log in</a><small>or</small><a data-toggle='modal' href='#signup'>Create an account</a></span></li>";
+        }
+        $this->set('loginText', $loginText);
     }
 
     public function beforeFilter(Event $event)

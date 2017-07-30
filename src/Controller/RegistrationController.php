@@ -34,7 +34,7 @@ class RegistrationController extends AppController{
 					'last_name' for last name
 			*/
 			$username = $this->request->data('username'); 
-			$password = $this->request->data('password');
+			$password = $this->request->data('pass');
 			$email = $this->request->data('email');
 			$first_name = $this->request->data('first_name');
 			$last_name = $this->request->data('last_name');

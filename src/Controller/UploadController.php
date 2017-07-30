@@ -22,11 +22,17 @@ class UploadController extends AppController
     
     public function index(){
         $uploadData = '';
+        if ($this->Auth->user('id') == null) {
+            $this->redirect(['controller' => 'Search', 'action' => 'index']);
+            return;
+        }
         if ($this->request->is('post')) {
             if(!empty($this->request->data['file']['name'])){
                 $fileName = $this->request->data['file']['name'];
                 $uploadPath = 'uploads/mediaitems/';
                 $uploadFile = $uploadPath.$fileName;
+                echo $this->request->data['file']['name'];
+                echo "hello";
                 if(move_uploaded_file($this->request->data['file']['tmp_name'],$uploadFile)){
                     $this->Flash->success(__('File has been uploaded and inserted successfully.'));
                     $item = new MediaItem([
@@ -35,7 +41,8 @@ class UploadController extends AppController
                         'media_type' => 'image',
                         'description' => $this->request->data['description'],
                         'category_id' => $this->request->data['category'],
-                        'file_path' => $this->request->data['file']['name']
+                        'file_path' => $this->request->data['file']['name'],
+                        'registered_user_id' => $this->Auth->user('id')
                     ]);
                     TableRegistry::get('Media_Items')->save($item);
                 }else{
