@@ -83,6 +83,7 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
+        $this->loadComponent('Auth');
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
@@ -110,6 +111,6 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        $this->Auth->allow();
     }
 }
