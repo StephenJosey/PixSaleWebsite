@@ -78,7 +78,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               </div>
               <div class="col-md-6 col-sm-7 col-xs-12">
                 <ul class="list-inline pull-right top-right">
-                  <li class="account-login"><span><a data-toggle="modal" href='.login-modal'>Log in</a><small>or</small><a data-toggle="modal" href='#signup'>Create an account</a></span></li>
+                  <?= $loginText ?>
                 </ul>
               </div>
             </div>
@@ -198,8 +198,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                   <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account</a>
                   <ul class="dropdown-menu dropdown-menu-right">
                    
-                    <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'profile'])?></li>
+                    <li><?= $this->Html->link(__("Profile"), ['controller' => 'User', 'action' => 'profile'])?></li>
                     <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'index'])?></li>
+                    <li><?= $this->Html->link(__("Sell"), ['controller' => 'Upload', 'action' => 'index'])?></li>
                   </ul>
                 </li>
                 
