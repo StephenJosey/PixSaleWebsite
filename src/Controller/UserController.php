@@ -5,10 +5,13 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 
 class UserController extends AppController{
 	
+	/*
+	     Handles the landing page
+	*/
 	public function index(){
 		//get id of logged in user
 		$user_id = $this->Auth->user('id');
@@ -22,12 +25,50 @@ class UserController extends AppController{
 		$this->set('id', $user_id);
 	}
 	
+	/*
+	     Handles the profile page
+	*/
 	public function profile(){
 		$user_id = $this->Auth->user('id');
 		$this->loadModel('RegisteredUsers');
 		$registered_user = $this->RegisteredUsers->find('all', array('fields' => array('username','email','first_name','last_name')))
 		                   ->where(['RegisteredUsers.id' => $user_id])->first();
 		$this->set(compact('registered_user'));
+		
+	}
+	
+	/*
+	   Handles the profile page
+	*/
+	public function messages(){
+		$user_id = $this->Auth->user('id');
+		
+		$messages= TableRegistry::get('Messages');
+		$message = $messages->find();
+		$orders = $messages->find()->select([
+											  'Messages.id',
+											  'Messages.receiver',
+											  'Messages.media_items_id'
+											])
+									->contain([
+											'MediaItems' => [
+												'fields' => [
+												    'MediaItems.file_path',
+											        'MediaItems.price',
+													'MediaItems.media_type',
+													'MediaItems.title'
+												]
+											
+											]
+												
+									
+									])
+									->where(['Messages.sender' => $user_id]);
+								
+							
+											
+		$this->set(compact('orders'));
+											
 		
 	}
 	

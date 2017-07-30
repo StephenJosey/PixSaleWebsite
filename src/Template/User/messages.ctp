@@ -29,7 +29,7 @@
        
                 <a href="/User/index" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
 				
-                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Messages/Orders</a>
+                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
 				
               </div>
             </div>
@@ -43,19 +43,23 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Product ID</th>
+                          <th>User ID Sent To</th>
+						  <th>Product ID</th>
 						  <th>Title</th>
+						  <th>Media Type</th>
                           <th>Total Price</th>
 						  <th>Sample </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach($products as $product){
-						 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$product->file_path;
+                        <?php foreach($orders as $order){
+						 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$order->media_item->file_path;
 						    echo '<tr>
-                          <td>'. $product->id . '</td>
-						  <td>'. $product->title . '</td>
-                          <td> $ '.$product->price. '</td>
+                          <td>'. $order->receiver . '</td>
+						  <td>'. $order->media_items_id .'</td>
+						  <td>'. $order->media_item->title .'</td>
+						  <td>'. $order->media_item->media_type .'</td>
+						  <td>'. $order->media_item->price . '</td>
 						  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail img-fluid" style = "height:100px;width:150px;"></td> 
                         </tr>';
 						}

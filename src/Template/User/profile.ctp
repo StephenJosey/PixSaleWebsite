@@ -21,7 +21,7 @@
        
                 <a href="/User/index" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
 				
-                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Messages/Orders</a>
+                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
 				
               </div>
             </div>

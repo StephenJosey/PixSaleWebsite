@@ -29,7 +29,7 @@
        
                 <a href="/User/index" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
 				
-                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Messages/Orders</a>
+                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
 				
               </div>
             </div>
@@ -38,7 +38,7 @@
             <div class="col-xs-12">
               <div class="innerWrapper">
                 <div class="orderBox">
-                  <h4>All Orders</h4>
+                  <h4>Your Products</h4>
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -46,7 +46,7 @@
                           <th>Product ID</th>
 						  <th>Title</th>
                           <th>Total Price</th>
-						  <th>Sample </th>
+						  <th>Product</th>
                         </tr>
                       </thead>
                       <tbody>
