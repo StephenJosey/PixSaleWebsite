@@ -25,11 +25,12 @@
               <div class="btn-group" role="group" aria-label="...">
                 
 	               <!-- Button Links -->
-                <a href="/User/profile" class="btn btn-default active"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
-       
-                <a href="/User/index" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
+				 
+                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'profile'))?>" class="btn btn-default active"><i class="fa fa-user" aria-hidden="true"></i>Profile</a> 
+			
+                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'index'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
 				
-                <a href="/User/messages" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
+                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'messages'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
 				
               </div>
             </div>
