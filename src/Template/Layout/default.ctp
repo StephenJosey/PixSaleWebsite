@@ -78,13 +78,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               </div>
               <div class="col-md-6 col-sm-7 col-xs-12">
                 <ul class="list-inline pull-right top-right">
-                  <?= $loginText ?>
+                  <?php if (isset($user)) {
+                        echo "<li class='account-login'><span style='color:white;'>";
+                        echo "Hi ".$first_name;
+                        echo $this->Html->link(__("Log out"), ['controller' => 'Login', 'action' => 'logout']);
+                        echo "</span></li>";
+                      }
+                      else {
+                          $loginText = "<li class='account-login'><span><a data-toggle='modal' href='#login'>Log in</a><small>or</small><a data-toggle='modal' href='#signup'>Create an account</a></span></li>";
+                          echo $loginText;
+                      }
+                   ?>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+
+    <?= $this->Flash->render() ?>
     <!-- NAV TOP -->
     <?php echo $this->Form->create($searchForm, ['type' => 'post', 'class' => 'navTop text-center', 'url' => ['controller' => 'Search', 'action' => 'index']]); ?>
       <div class="container">
@@ -335,8 +347,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       </div>
     </div>
 
-
-    <?= $this->Flash->render() ?>
     <footer>
                 <!-- COPY RIGHT -->
       <div class="copyRight clearfix">
