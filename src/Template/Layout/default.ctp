@@ -157,11 +157,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                    
-                    <li><?= $this->Html->link(__("Home"), ['controller' => 'Home', 'action' => 'index'])?></li>
-                  </ul>
+                  <?= $this->Html->link(__("Home"), ['controller' => 'Pages', 'action' => 'index'])?>
                 </li>
               
                 
@@ -173,11 +169,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                   
-                    <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?></li>
-                  </ul>
+                  <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?>
                 </li>
                 
                 
