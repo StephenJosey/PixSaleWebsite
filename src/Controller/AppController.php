@@ -92,10 +92,17 @@ class AppController extends Controller
 
         $searchForm = "";
         $this->set('searchForm', $searchForm);
+		
+		//Get Categories
         $categories = TableRegistry::get('Categories');
         $categories = $categories->find('list', array( 
             'fields' => array('id', 'category_name')));
         $this->set(compact('categories'));
+		//Get Media Items
+	    $this->loadModel('MediaItems');
+		$media_items_query = $this->MediaItems->find();
+		$media_items = $media_items_query->select(['file_path']);		
+		$this->set(compact('media_items'));
 
         if ($this->Auth->user()) {
             $loginText = "<li class='account-login'><span style='color:white;'>Welcome ".$this->Auth->user('first_name').
