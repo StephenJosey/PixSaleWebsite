@@ -7,6 +7,15 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 
+
+/*
+	+-----Peer Review------+
+	Great use of comments to show what is being handled.
+	Spaces between if statements and () and {} would be better.
+	Everything is self-explanatory. I understood what the code was doing by skimming through it.
+
+*/
+
 class UserController extends AppController{
 	
 	/*
@@ -79,11 +88,8 @@ class UserController extends AppController{
 			$this->set(compact('orders'));
 		}else{
 			return $this->redirect(['controller' => 'login', 'action' => 'index']);
-		}		
-											
-		
+		}
 	}
-	
 }
 
 
