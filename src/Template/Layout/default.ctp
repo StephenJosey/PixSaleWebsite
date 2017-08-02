@@ -70,12 +70,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="topBar">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 col-sm-7 col-xs-12">
+              <div class="col-md-6 col-sm-8 col-xs-12">
                 <ul class="list-inline pull-left top-left">
-                    <li class = 'account-login' style="float:left !important"><span style = 'color:white;'>PixSale</span></li>
+                    <li class = 'account-login'>
+                        <span style = 'color:white;line-height:35px !important; font-size: 20px'>
+                            PixSale
+                        </span>
+                    </li>
                 </ul>
               </div>
-              <div class="col-md-6 col-sm-7 col-xs-12">
+              <div class="col-md-6 col-sm-8 col-xs-12">
                 <ul class="list-inline pull-right top-right">
                   <?php if (isset($user)) {
                         echo "<li class='account-login'><span style='color:white;'>";
@@ -324,10 +328,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       <div class="copyRight clearfix">
         <div class="container">
           <div class="row">
-            <div class="col-sm-7 col-xs-12">
+            <div class="col-sm-7 col-xs-12" style="color:white">
+                SFSU Software Engineering Project, Spring 2017.  For Demonstration Only
             </div>
             <div class="col-sm-5 col-xs-12">
-             
             </div>
           </div>
         </div>
