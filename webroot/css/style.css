@@ -1095,7 +1095,7 @@ body.bodyColor.container {
 
 @media (min-width: 768px) {
   .nav-V3.navbar-default .navbar-collapse {
-    float: none;
+    float: right;
     padding: 0;
     background: transparent; } }
 

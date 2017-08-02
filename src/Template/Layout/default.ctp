@@ -64,16 +64,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body class="body-wrapper">
     <div class="main-wrapper">
       <!-- HEADER -->
-      <div class="header clearfix">
+      <div class="header clearfix headerV3">
 
          <!-- TOPBAR -->
         <div class="topBar">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 col-sm-5 hidden-xs">
-                <ul class="list-inline">
-               
-                  
+              <div class="col-md-6 col-sm-7 col-xs-12">
+                <ul class="list-inline pull-left top-left">
+                    <li class = 'account-login' style="float:left !important"><span style = 'color:white;'>PixSale</span></li>
                 </ul>
               </div>
               <div class="col-md-6 col-sm-7 col-xs-12">
@@ -133,7 +132,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php echo $this->Form->end(); ?>
 
         <!-- NAVBAR -->
-        <nav class="navbar navbar-main navbar-default" role="navigation">
+        <nav class="navbar navbar-main navbar-default nav-V3" role="navigation">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -143,7 +142,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
+              <!--<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>-->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -217,26 +216,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
       </div>
 
-            <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="page-title">
-                <h2><?= $this->fetch('title') ?></h2>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <ol class="breadcrumb pull-right">
-                <li>
-                  <?= $this->Html->link(__("Home"), ['controller' => 'Home', 'action' => 'index'])?>
-                </li>
-                <li class="active"><?= $this->fetch('title') ?></li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
 
 
