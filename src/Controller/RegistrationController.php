@@ -52,6 +52,8 @@ class RegistrationController extends AppController{
 			//Check if registered user successfully added to database
 			if($registered_users_table->save($registered_user)){
 				$this->Flash->success("Your account has succesfully been created");
+				$this->Auth->setUser($registered_user->toArray());
+				return $this->redirect(['controller' => 'Search', 'action' => 'index']);
 			}else{
 				$this->Flash->set('There was an error creating your account');
 			}

@@ -1,6 +1,5 @@
 <?php $this->assign("title", $title);  ?>
 <section class="mainContent clearfix productsContent">
-		Sort by <?= $this->Paginator->sort('price') ?><br>
 		<?php $size = (20 * sizeof($items) % 100);
 			if (sizeof($items) >= 5)
 				$size = 100; ?>
@@ -20,13 +19,12 @@
 	          <div class="productImage clearfix">
 	            <img src=
 				  <?php 
-				  	$file_name = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$item->file_path;
+				  	$file_name = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$item->file_path;
 				  	echo "'$file_name'";
 				  ?> />
 	            <div class="productMasking">
-	              <ul class="list-inline btn-group" role="group">
-	                <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-	                <li><?= $this->Html->link(__(""), ['controller' => 'Search', 'action' => 'singleProduct', $item->id], 
+	              <ul class="list-inline btn-group">
+	                <li style="padding-left:50px;"><?= $this->Html->link(__(""), ['controller' => 'Search', 'action' => 'singleProduct', $item->id], 
                   		['class' => 'btn btn-default fa fa-eye']) ?>
 	                </li>
 	              </ul>
@@ -50,12 +48,12 @@
 		</div>
 		<div class="paginator">
 	        <ul class="pagination">
-	            <?= $this->Paginator->first('<< ' . __('first')) ?>
-	            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+	            <?= $this->Paginator->first('<< ' . __('')) ?>
+	            <?= $this->Paginator->prev('< ' . __('')) ?>
 	            <?= $this->Paginator->numbers() ?>
-	            <?= $this->Paginator->next(__('next') . ' >') ?>
-	            <?= $this->Paginator->last(__('last') . ' >>') ?>
+	            <?= $this->Paginator->next(__('') . ' >') ?>
+	            <?= $this->Paginator->last(__('') . ' >>') ?>
 	        </ul>
-	        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+	        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} media item(s) out of {{count}} total')]) ?></p>
 	    </div>
 </section>

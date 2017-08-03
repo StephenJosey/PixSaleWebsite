@@ -31,7 +31,6 @@ class UploadController extends AppController
                 $uploadPath = 'uploads/mediaitems/';
                 $uploadFile = $uploadPath.$fileName;
                 echo $this->request->data['file']['name'];
-                echo "hello";
                 if(move_uploaded_file($this->request->data['file']['tmp_name'],$uploadFile)){
                     $this->Flash->success(__('File has been uploaded and inserted successfully.'));
                     $item = new MediaItem([
@@ -44,6 +43,29 @@ class UploadController extends AppController
                         'registered_user_id' => $this->Auth->user('id')
                     ]);
                     TableRegistry::get('Media_Items')->save($item);
+					//Make thumbnail
+					if(is_file($uploadFile)){
+						$thumb_file_name = 'uploads/thumbnails/' . $fileName;
+						list($width_orig, $height_orig, $image_type) = getimagesize($uploadFile);
+						if($width_orig){
+							switch($image_type){
+								case 2: $src_im = imagecreatefromjpeg($uploadFile); break; // if jpeg file
+                                case 3: $src_im = imagecreatefrompng($uploadFile); break; // if png file 								
+							}
+							$thumb_width = 300;
+							$thumb_height = 300;
+							$new_image = imagecreatetruecolor($thumb_width,$thumb_height);
+							
+							if($new_image){
+								imagecopyresampled($new_image, $src_im,0,0,0,0,$thumb_width,$thumb_height, $width_orig, $height_orig);
+							    switch($image_type){
+									case 2: imagejpeg($new_image, $thumb_file_name, 100); break;
+									case 3: imagepng($new_image, $thumb_file_name, 100); break;
+								}
+							}
+						}
+						
+					}
                 }else{
 					$this->Flash->error(__('Unable to upload file, please try again.'));
 				}

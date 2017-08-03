@@ -26,6 +26,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103973803-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
 
      <?php $app_root = dirname($_SERVER['SCRIPT_NAME']);?>
      <!-- PLUGINS CSS STYLE -->
@@ -64,27 +75,40 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body class="body-wrapper">
     <div class="main-wrapper">
       <!-- HEADER -->
-      <div class="header clearfix">
+      <div class="header clearfix headerV3">
 
          <!-- TOPBAR -->
         <div class="topBar">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 col-sm-5 hidden-xs">
-                <ul class="list-inline">
-               
-                  
+              <div class="col-xs-12">
+                <ul class="list-inline pull-left top-left">
+                    <li class = 'account-login' style = "clear:both;">
+                        <span>
+                            <a style = 'color:white; font-size: 20px' href <?= $this->Url->build(array('controller' => 'Home', 'action' => 'index')) ?>>Pix<span style="color:#00E1FF">Sale</span></a>
+                        </span>
+                    </li>
                 </ul>
-              </div>
-              <div class="col-md-6 col-sm-7 col-xs-12">
                 <ul class="list-inline pull-right top-right">
-                  <?= $loginText ?>
+                  <?php if (isset($user)) {
+                        echo "<li class='account-login' style = 'display:inline-block !important' =><span style='color:white;'>";
+                        echo "Hi ".$first_name;
+                        echo $this->Html->link(__("Log out"), ['controller' => 'Login', 'action' => 'logout']);
+                        echo "</span></li>";
+                      }
+                      else {
+                          $loginText = "<li class='account-login'><span><a data-toggle='modal' href='#login'>Log in</a><small>or</small><a data-toggle='modal' href='#signup'>Create an account</a></span></li>";
+                          echo $loginText;
+                      }
+                   ?>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+
+    <?= $this->Flash->render() ?>
     <!-- NAV TOP -->
     <?php echo $this->Form->create($searchForm, ['type' => 'post', 'class' => 'navTop text-center', 'url' => ['controller' => 'Search', 'action' => 'index']]); ?>
       <div class="container">
@@ -121,7 +145,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php echo $this->Form->end(); ?>
 
         <!-- NAVBAR -->
-        <nav class="navbar navbar-main navbar-default" role="navigation">
+        <nav class="navbar navbar-main navbar-default nav-V3" role="navigation">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -131,7 +155,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
+              <!--<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>-->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -145,15 +169,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                    
-                    <li><?= $this->Html->link(__("Home"), ['controller' => 'Home', 'action' => 'index'])?></li>
-                  </ul>
+                  <?= $this->Html->link(__("Home"), ['controller' => 'Pages', 'action' => 'index'])?>
                 </li>
               
                 
-                   <li <?php 
+                <li <?php 
                         if ($this->request->params['controller'] == "Search" && $this->request->params['action'] == "index") {
                           echo "class='dropdown active'";
                         }
@@ -161,14 +181,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                   
-                    <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?></li>
-                  </ul>
+                    <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?>
                 </li>
-                
-                
+                                <li <?php 
+                        if ($this->request->params['controller'] == "Upload" && $this->request->params['action'] == "index") {
+                          echo "class='dropdown active'";
+                        }
+                        else {
+                          echo "class='dropdown'";
+                        }
+                    ?> >
+                  <?= $this->Html->link(__("Sell"), ['controller' => 'Upload', 'action' => 'index'])?>
+                </li>
                 <li <?php 
                         if ($this->request->params['controller'] == "Home" && ($this->request->params['action'] == "terms" || $this->request->params['action'] == "about")) {
                           echo "class='dropdown active'";
@@ -177,14 +201,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">information</a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                    <li><?= $this->Html->link(__("About Us"), ['controller' => 'Home', 'action' => 'about'])?></li>
-                    <li><?= $this->Html->link(__("Terms and Conditions"), ['controller' => 'Home', 'action' => 'terms'])?></li>
-                    
-
-                    
-                  </ul>
+                    <?= $this->Html->link(__("About Us"), ['controller' => 'Home', 'action' => 'about'])?>
                 </li>
                
                 <li <?php 
@@ -199,8 +216,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                   <ul class="dropdown-menu dropdown-menu-right">
                    
                     <li><?= $this->Html->link(__("Profile"), ['controller' => 'User', 'action' => 'profile'])?></li>
-                    <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'index'])?></li>
-                    <li><?= $this->Html->link(__("Sell"), ['controller' => 'Upload', 'action' => 'index'])?></li>
+                    <li><?= $this->Html->link(__("Your Products"), ['controller' => 'User', 'action' => 'index'])?></li>
+                    <li><?= $this->Html->link(__("Your Orders"), ['controller' => 'User', 'action' => 'messages'])?></li>
                   </ul>
                 </li>
                 
@@ -213,26 +230,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
       </div>
 
-            <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="page-title">
-                <h2><?= $this->fetch('title') ?></h2>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <ol class="breadcrumb pull-right">
-                <li>
-                  <?= $this->Html->link(__("Home"), ['controller' => 'Home', 'action' => 'index'])?>
-                </li>
-                <li class="active"><?= $this->fetch('title') ?></li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
 
 
@@ -335,17 +333,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       </div>
     </div>
 
-
-    <?= $this->Flash->render() ?>
     <footer>
                 <!-- COPY RIGHT -->
       <div class="copyRight clearfix">
         <div class="container">
           <div class="row">
-            <div class="col-sm-7 col-xs-12">
+            <div class="col-sm-7 col-xs-12" style="color:white">
+                SFSU Software Engineering Project, Spring 2017.  For Demonstration Only
             </div>
             <div class="col-sm-5 col-xs-12">
-             
             </div>
           </div>
         </div>

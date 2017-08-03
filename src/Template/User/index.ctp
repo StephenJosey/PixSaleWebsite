@@ -26,12 +26,13 @@
                 
 	               <!-- Button Links -->
 				 
-                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'profile'))?>" class="btn btn-default active"><i class="fa fa-user" aria-hidden="true"></i>Profile</a> 
+                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'profile'))?>" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a> 
 			
-                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'index'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
+                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'index'))?>" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>Listed Products</a>
 				
-                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'messages'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
+                <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'messages'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Order History</a>
 				
+				<a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'orderRequests'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Order Requests</a>
               </div>
             </div>
           </div>
@@ -51,8 +52,9 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach($products as $product){
-						 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$product->file_path;
+                        <?php 
+						foreach($products as $product){
+						 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$product->file_path;
 						    echo '<tr>
                           <td>'. $product->id . '</td>
 						  <td>'. $product->title . '</td>

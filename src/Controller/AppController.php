@@ -84,6 +84,7 @@ class AppController extends Controller
     public function beforeRender(Event $event)
     {
         $this->loadComponent('Auth');
+        $this->loadComponent('Flash');
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
@@ -92,21 +93,23 @@ class AppController extends Controller
 
         $searchForm = "";
         $this->set('searchForm', $searchForm);
+		
+		//Get Categories
         $categories = TableRegistry::get('Categories');
         $categories = $categories->find('list', array( 
             'fields' => array('id', 'category_name')));
         $this->set(compact('categories'));
+		//Get Media Items
+	    $this->loadModel('MediaItems');
+		$media_items_query = $this->MediaItems->find();
+		$media_items = $media_items_query->select(['file_path']);		
+		$this->set(compact('media_items'));
 
         if ($this->Auth->user()) {
-            $loginText = "<li class='account-login'><span style='color:white;'>Welcome ".$this->Auth->user('first_name').
-                            "<a href='/Login/logout'>Log out</a></span></li>";
-            //echo $this->Html->link(__("Log out"), ['controller' => 'Login', 'action' => 'logout']);
-
+            $this->set('user', $this->Auth->user());
+            //echo $this->Auth->user('first_name');
+            $this->set('first_name', $this->Auth->user('first_name'));
         }
-        else {
-            $loginText = "<li class='account-login'><span><a data-toggle='modal' href='#login'>Log in</a><small>or</small><a data-toggle='modal' href='#signup'>Create an account</a></span></li>";
-        }
-        $this->set('loginText', $loginText);
     }
 
     public function beforeFilter(Event $event)

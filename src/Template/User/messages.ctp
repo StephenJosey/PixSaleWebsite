@@ -7,13 +7,15 @@
         <div class="btn-group" role="group" aria-label="...">
           
            <!-- Button Links -->
-	<a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'profile'))?>" class="btn btn-default active"><i class="fa fa-user" aria-hidden="true"></i>Profile</a> 
+		  <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'profile'))?>" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a> 
 
-          <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'index'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Your Products</a>
+          <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'index'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Listed Products</a>
 	
-          <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'messages'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Orders</a>
-	
-        </div>
+          <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'messages'))?>" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>Order History</a>
+		  
+		  <a href="<?= $this->Url->build(array('controller' => 'user', 'action' => 'orderRequests'))?>" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Order Requests</a>
+        
+		</div>
       </div>
     </div>
     <div class="row">
@@ -35,7 +37,7 @@
                 </thead>
                 <tbody>
                   <?php foreach($orders as $order){
-			 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$order->media_item->file_path;
+			 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$order->media_item->file_path;
 			    echo '<tr>
                     <td>'. $order->receiver . '</td>
 			  <td>'. $order->media_items_id .'</td>

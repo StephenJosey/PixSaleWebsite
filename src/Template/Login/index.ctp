@@ -8,7 +8,7 @@
           <div class="panel-body">
             <form action="" method="POST" role="form">
               <div class="form-group">
-                <label for="">Enter Email</label>
+                <label for="">Enter Username</label>
                 <input type="text" class="form-control" name="username">
               </div>
               <div class="form-group">
@@ -21,9 +21,6 @@
                 </label>
               </div>
               <button type="submit" class="btn btn-primary btn-block">log in</button>
-              <button type="submit" class="btn btn-default pull-left"><i class="fa fa-facebook" aria-hidden="true"></i><span>log in with facebook</span></button>
-              <button type="submit" class="btn btn-default pull-right"><i class="fa fa-google-plus" aria-hidden="true"></i><span>log in with google plus</span></button>
-              <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
             </form>
           </div>
         </div>
