@@ -53,7 +53,7 @@
                       <tbody>
                         <?php 
 						foreach($products as $product){
-						 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$product->file_path;
+						 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$product->file_path;
 						    echo '<tr>
                           <td>'. $product->id . '</td>
 						  <td>'. $product->title . '</td>

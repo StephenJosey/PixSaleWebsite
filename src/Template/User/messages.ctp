@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                   <?php foreach($orders as $order){
-			 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$order->media_item->file_path;
+			 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$order->media_item->file_path;
 			    echo '<tr>
                     <td>'. $order->receiver . '</td>
 			  <td>'. $order->media_items_id .'</td>
