@@ -73,6 +73,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body class="body-wrapper">
+<?php include_once("analyticstracking.php") ?>
     <div class="main-wrapper">
       <!-- HEADER -->
       <div class="header clearfix headerV3">
