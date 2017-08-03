@@ -1,6 +1,7 @@
 
 
 <!-- WHITE SECTION -->
+<?php $app_root = dirname($_SERVER['SCRIPT_NAME']);?>
 <section class="whiteSection clearfix aboutPeople">
   <div class="container">
     <div class="row">
@@ -9,9 +10,8 @@
       </div>
       <div class="col-sm-3 col-xs-12">
         <div class="thumbnail">
-	<div class="caption">
-            <h5><?= $this->Html->link(__('Manuel Duran'), ['controller' => 'Home', 'action' => 'manuel'], 
-            		['style' => 'color:black !important']) ?></h5>
+	        <div class="caption">
+            <h5 style="color:black !important;">Manuel Duran</h5>
             <p>(CEO)</p>
           </div>
         </div>
@@ -55,8 +55,8 @@
       <div class="col-sm-3 col-xs-12">
         <div class="thumbnail">
           <div class="caption">
-            <h5><?= $this->Html->link(__('Yuezhou Yu'), ['controller' => 'Home', 'action' => 'Yuezhou'], 
-            		['style' => 'color:black !important']) ?></h5>
+            <img src="<?= $app_root ?>/img/yuezhou.jpg">
+            <h5 style="color:black !important;">Yuezhou Yu</h5>
             <p>(Creative Director)</p>
           </div>
         </div>
