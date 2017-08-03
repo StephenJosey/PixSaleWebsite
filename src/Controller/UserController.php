@@ -58,7 +58,7 @@ class UserController extends AppController{
 	}
 	
 	/*
-	   Handles the profile page
+	   Handles the order history page
 	*/
 	public function messages(){
 		if($this->Auth->user('id')){
@@ -89,6 +89,41 @@ class UserController extends AppController{
 		}else{
 			return $this->redirect(['controller' => 'login', 'action' => 'index']);
 		}
+	}
+	/*
+		Handles the order requests page
+	*/
+	public function orderRequests(){
+		if($this->Auth->user('id')){
+			$user_id = $this->Auth->user('id');
+		
+			$messages= TableRegistry::get('Messages');
+			$message = $messages->find();
+			$order_requests = $messages->find()->select([
+											  'Messages.id',
+											  'Messages.sender',
+											  'Messages.media_items_id'
+											])
+									->contain([
+											'MediaItems' => [
+												'fields' => [
+												    'MediaItems.file_path',
+											        'MediaItems.price',
+													'MediaItems.media_type',
+													'MediaItems.title'
+												]
+											
+											]	
+									])
+									->where(['Messages.receiver' => $user_id]);
+								
+							
+			$this->set(compact('order_requests'));
+		}else{
+			return $this->redirect(['controller' => 'login', 'action' => 'index']);
+		}
+		
+		
 	}
 }
 
