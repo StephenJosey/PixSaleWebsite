@@ -70,6 +70,22 @@ class SearchController extends AppController {
         $item = $items->get($id);
 
         $this->set('item', $item);
+
+        if ($this->request->is('post')) {
+            $seller = TableRegistry::get('Registered_Users')->get($item->registered_user_id);
+            $messageTable = TableRegistry::get('Messages');
+            $message = $messageTable->newEntity();
+            $message->sender = $this->Auth->user('id');
+            $message->receiver = $seller->id;
+            $message->media_items_id = $id;
+            $message->message = $this->Auth->user('username') + " wants to buy this item!";
+            if ($messageTable->save($message)) {
+                $this->Flash->success("You've successfully purchased that item!");
+                return $this->redirect(['controller' => 'Search', 'action' => 'index']);
+            } else {
+                $this->Flash->warning("Failed to purchase item.");
+            }
+        }
     }
 
 

@@ -11,7 +11,7 @@
                     <div class="form-group"><?php echo $this->Form->input('description', ['type' => 'text', 'class' => 'form-control']); ?></div>
                     <div class="form-group"><?php echo $this->Form->input('category', ['type' => 'select', 'class' => 'form-control', 'options' => $categories]); ?></div>
                     <div class="form-group"><?php echo $this->Form->input('file', ['type' => 'file', 'class' => 'form-control']); ?></div>
-                    <div class="form-group"><?php echo $this->Form->button(__('Upload File'), ['type'=>'submit', 'class' => 'btn btn-right btn-block']); ?></div>
+                    <div class="form-group"><?php echo $this->Form->button(__('Upload File'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?></div>
                 <?php echo $this->Form->end(); ?>
             </div>
           </div>
