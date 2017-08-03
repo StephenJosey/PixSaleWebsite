@@ -20,7 +20,7 @@
 	          <div class="productImage clearfix">
 	            <img src=
 				  <?php 
-				  	$file_name = dirname($_SERVER['SCRIPT_NAME'])."/uploads/mediaitems/".$item->file_path;
+				  	$file_name = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$item->file_path;
 				  	echo "'$file_name'";
 				  ?> />
 	            <div class="productMasking">
