@@ -73,8 +73,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               <div class="col-xs-12">
                 <ul class="list-inline pull-left top-left">
                     <li class = 'account-login' style = "clear:both;">
-                        <span style = 'color:white; font-size: 20px'>
-                            <a href <?= $this->Url->build(array('controller' => 'Home', 'action' => 'index')) ?>>PixSale</a>
+                        <span>
+                            <a style = 'color:white; font-size: 20px' href <?= $this->Url->build(array('controller' => 'Home', 'action' => 'index')) ?>>Pix<span style="color:#00E1FF">Sale</span></a>
                         </span>
                     </li>
                 </ul>
@@ -162,7 +162,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </li>
               
                 
-                   <li <?php 
+                <li <?php 
                         if ($this->request->params['controller'] == "Search" && $this->request->params['action'] == "index") {
                           echo "class='dropdown active'";
                         }
@@ -170,10 +170,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?>
+                    <?= $this->Html->link(__("Browse"), ['controller' => 'Search', 'action' => 'index'])?>
                 </li>
-                
-                
+                                <li <?php 
+                        if ($this->request->params['controller'] == "Upload" && $this->request->params['action'] == "index") {
+                          echo "class='dropdown active'";
+                        }
+                        else {
+                          echo "class='dropdown'";
+                        }
+                    ?> >
+                  <?= $this->Html->link(__("Sell"), ['controller' => 'Upload', 'action' => 'index'])?>
+                </li>
                 <li <?php 
                         if ($this->request->params['controller'] == "Home" && ($this->request->params['action'] == "terms" || $this->request->params['action'] == "about")) {
                           echo "class='dropdown active'";
@@ -182,14 +190,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                           echo "class='dropdown'";
                         }
                     ?> >
-                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">information</a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                    <li><?= $this->Html->link(__("About Us"), ['controller' => 'Home', 'action' => 'about'])?></li>
-                    <li><?= $this->Html->link(__("Terms and Conditions"), ['controller' => 'Home', 'action' => 'terms'])?></li>
-                    
-
-                    
-                  </ul>
+                    <?= $this->Html->link(__("About Us"), ['controller' => 'Home', 'action' => 'about'])?>
                 </li>
                
                 <li <?php 
@@ -204,8 +205,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                   <ul class="dropdown-menu dropdown-menu-right">
                    
                     <li><?= $this->Html->link(__("Profile"), ['controller' => 'User', 'action' => 'profile'])?></li>
-                    <li><?= $this->Html->link(__("All Orders"), ['controller' => 'User', 'action' => 'index'])?></li>
-                    <li><?= $this->Html->link(__("Sell"), ['controller' => 'Upload', 'action' => 'index'])?></li>
+                    <li><?= $this->Html->link(__("Your Products"), ['controller' => 'User', 'action' => 'index'])?></li>
+                    <li><?= $this->Html->link(__("Your Orders"), ['controller' => 'User', 'action' => 'messages'])?></li>
                   </ul>
                 </li>
                 
