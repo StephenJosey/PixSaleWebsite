@@ -70,19 +70,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="topBar">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 col-sm-8 col-xs-12">
+              <div class="col-xs-12">
                 <ul class="list-inline pull-left top-left">
-                    <li class = 'account-login'>
-                        <span style = 'color:white;line-height:35px !important; font-size: 20px'>
-                            PixSale
+                    <li class = 'account-login' style = "clear:both;">
+                        <span style = 'color:white; font-size: 20px'>
+                            <a href <?= $this->Url->build(array('controller' => 'Home', 'action' => 'index')) ?>>PixSale</a>
                         </span>
                     </li>
                 </ul>
-              </div>
-              <div class="col-md-6 col-sm-8 col-xs-12">
                 <ul class="list-inline pull-right top-right">
                   <?php if (isset($user)) {
-                        echo "<li class='account-login'><span style='color:white;'>";
+                        echo "<li class='account-login' style = 'display:inline-block !important' =><span style='color:white;'>";
                         echo "Hi ".$first_name;
                         echo $this->Html->link(__("Log out"), ['controller' => 'Login', 'action' => 'logout']);
                         echo "</span></li>";
