@@ -31,7 +31,6 @@ class UploadController extends AppController
                 $uploadPath = 'uploads/mediaitems/';
                 $uploadFile = $uploadPath.$fileName;
                 echo $this->request->data['file']['name'];
-                echo "hello";
                 if(move_uploaded_file($this->request->data['file']['tmp_name'],$uploadFile)){
                     $this->Flash->success(__('File has been uploaded and inserted successfully.'));
                     $item = new MediaItem([
@@ -60,8 +59,8 @@ class UploadController extends AppController
 							if($new_image){
 								imagecopyresampled($new_image, $src_im,0,0,0,0,$thumb_width,$thumb_height, $width_orig, $height_orig);
 							    switch($image_type){
-									case 2: imagejpeg($new_image, $thumb_file_name); break;
-									case 3: imagepng($new_image, $thumb_file_name); break;
+									case 2: imagejpeg($new_image, $thumb_file_name, 100); break;
+									case 3: imagepng($new_image, $thumb_file_name, 100); break;
 								}
 							}
 						}
