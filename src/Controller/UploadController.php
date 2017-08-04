@@ -29,8 +29,9 @@ class UploadController extends AppController
             if(!empty($this->request->data['file']['name'])){
                 $fileName = $this->request->data['file']['name'];
                 $uploadPath = 'uploads/mediaitems/';
+				$fileName =  preg_replace('/\s/', '-', $fileName);
                 $uploadFile = $uploadPath.$fileName;
-                echo $this->request->data['file']['name'];
+                echo $fileName;
                 if(move_uploaded_file($this->request->data['file']['tmp_name'],$uploadFile)){
                     $this->Flash->success(__('File has been uploaded and inserted successfully.'));
                     $item = new MediaItem([
@@ -39,7 +40,7 @@ class UploadController extends AppController
                         'media_type' => 'image',
                         'description' => $this->request->data['description'],
                         'category_id' => $this->request->data['category'],
-                        'file_path' => $this->request->data['file']['name'],
+                        'file_path' => $fileName,
                         'registered_user_id' => $this->Auth->user('id')
                     ]);
                     TableRegistry::get('Media_Items')->save($item);
