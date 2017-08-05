@@ -31,7 +31,6 @@ class UploadController extends AppController
                 $uploadPath = 'uploads/mediaitems/';
 				$fileName =  preg_replace('/\s/', '-', $fileName);
                 $uploadFile = $uploadPath.$fileName;
-                echo $fileName;
                 if(move_uploaded_file($this->request->data['file']['tmp_name'],$uploadFile)){
                     $this->Flash->success(__('File has been uploaded and inserted successfully.'));
                     $item = new MediaItem([
