@@ -21,6 +21,7 @@
                 </label>
               </div>
               <button type="submit" class="btn btn-primary btn-block">log in</button>
+              <?= '<a data-dismiss="modal" data-toggle="modal" href="#signup" style = "padding-top:20px;"><span style = "color:#337ab7 !important;">No account? Click to register.</span></a>' ?>
             </form>
           </div>
         </div>
