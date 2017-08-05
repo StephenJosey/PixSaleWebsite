@@ -257,7 +257,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <?php echo $this->Form->input('pass', ['type' => 'password',
                                 'templates' => ['inputContainer' => '{{content}}'], 'class' => 'form-control', 'label' => 'Password']); ?>
                     <br>
-                    <?php echo $this->Form->button(__('Login'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?>
+					
+                    <?php echo $this->Form->button(__('Login'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?><br>
+					
+					<?= '<a data-dismiss="modal" data-toggle="modal" href="#signup" style = "padding-top:20px;"><span style = "color:#337ab7 !important;">No account? Click to register.</span></a>' ?>
               <?php echo $this->Form->end(); ?>
           </div>
         </div>
