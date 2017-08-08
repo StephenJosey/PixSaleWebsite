@@ -38,6 +38,11 @@ class MessagesTable extends Table
             'foreignKey' => 'media_items_id',
             'joinType' => 'INNER'
         ]);
+		
+		$this->belongsTo('RegisteredUsers', [
+			'foreignKey' => 'id',
+			'joinType' => 'INNER'
+		]);
     }
 
     /**

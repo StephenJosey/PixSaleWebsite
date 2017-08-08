@@ -26,11 +26,12 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>User ID Sent From</th>
+              <th>Sender's User ID</th>
+			  <th>Sender's Email</th>
 			  <th>Product ID</th>
 			  <th>Title</th>
 			  <th>Media Type</th>
-                    <th>Total Price</th>
+              <th>Total Price</th>
 			  <th>Sample </th>
                   </tr>
                 </thead>
@@ -39,11 +40,12 @@
 			 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$order_request->media_item->file_path;
 			    echo '<tr>
                     <td>'. $order_request->sender . '</td>
-			  <td>'. $order_request->media_items_id .'</td>
-			  <td>'. $order_request->media_item->title .'</td>
-			  <td>'. $order_request->media_item->media_type .'</td>
-			  <td>'. $order_request->media_item->price . '</td>
-			  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail img-fluid" style = "height:100px;width:150px;"></td> 
+					<td>'. $order_request->registered_user->email . '</td>
+					<td>'. $order_request->media_items_id .'</td>
+					<td>'. $order_request->media_item->title .'</td>
+					<td>'. $order_request->media_item->media_type .'</td>
+					<td>'. $order_request->media_item->price . '</td>
+					<td> <img src ="'. (string)$file_path . '" class = "img-thumbnail img-fluid" style = "height:100px;width:150px;"></td> 
                   </tr>';
 			}
 			?>
