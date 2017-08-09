@@ -27,24 +27,26 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>User ID Sent To</th>
-			  <th>Product ID</th>
-			  <th>Title</th>
-			  <th>Media Type</th>
+                    <th>Receiver's User ID</th>
+					<th>Receiver's Email</th>
+					<th>Product ID</th>
+					<th>Title</th>
+					<th>Media Type</th>
                     <th>Total Price</th>
-			  <th>Sample </th>
+					<th>Sample </th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach($orders as $order){
 			 $file_path = dirname($_SERVER['SCRIPT_NAME'])."/uploads/thumbnails/".$order->media_item->file_path;
 			    echo '<tr>
-                    <td>'. $order->receiver . '</td>
-			  <td>'. $order->media_items_id .'</td>
-			  <td>'. $order->media_item->title .'</td>
-			  <td>'. $order->media_item->media_type .'</td>
-			  <td>'. $order->media_item->price . '</td>
-			  <td> <img src ="'. (string)$file_path . '" class = "img-thumbnail img-fluid" style = "height:100px;width:150px;"></td> 
+						<td>'. $order->receiver . '</td>
+						<td>'. $order->registered_user->email . '</td>
+						<td>'. $order->media_items_id .'</td>
+						<td>'. $order->media_item->title .'</td>
+						<td>'. $order->media_item->media_type .'</td>
+						<td>'. $order->media_item->price . '</td>
+						<td> <img src ="'. (string)$file_path . '" class = "img-thumbnail img-fluid" style = "height:100px;width:150px;"></td> 
                   </tr>';
 			}
 			?>
