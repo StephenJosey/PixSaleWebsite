@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'PixSale';
 ?>
 <!DOCTYPE html>
 <html>
@@ -118,7 +118,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </div>
             <div class="searchBox">
                 <span class="input-group">
-                    <?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control', 'label' => false]); ?>
+                    <?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control', 'label' => false, 'maxlength' => '30']); ?>
                     <?php echo $this->Form->button(__("<i class='fa fa-search'></i>"), ['type'=>'submit', 'class' => 'input-group-addon']); ?>
                 </span>
             </div>

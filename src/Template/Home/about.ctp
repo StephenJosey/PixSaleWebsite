@@ -51,7 +51,6 @@
       <div class="col-sm-3 col-xs-12">
         <div class="thumbnail">
           <div class="caption">
-            <img src="<?= $app_root ?>/img/yuezhou.jpg">
             <h5 style="color:black !important;">Yuezhou Yu</h5>
             <p>(Creative Director)</p>
           </div>
