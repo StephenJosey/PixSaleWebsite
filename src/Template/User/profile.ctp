@@ -26,7 +26,7 @@
           <div class="row">
             <div class="col-md-2 col-sm-3 col-xs-12">
               <div class="thumbnail">
-                <img src="img/products/profile/profile-image.jpg" alt="profile-image">
+                <img src="<?=dirname($_SERVER['SCRIPT_NAME']).'/'?>img/profile.png" alt="profile-image">
                 
               </div>
             </div>

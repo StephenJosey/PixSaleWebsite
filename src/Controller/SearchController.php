@@ -72,6 +72,10 @@ class SearchController extends AppController {
         $this->set('item', $item);
 
         if ($this->request->is('post')) {
+            if (!$this->Auth->user()) {
+                $this->Flash->set("You must log in before purchasing an item.");
+                return $this->redirect(['controller' => 'Login', 'action' => 'index']);
+            }
             $seller = TableRegistry::get('Registered_Users')->get($item->registered_user_id);
             $messageTable = TableRegistry::get('Messages');
             $message = $messageTable->newEntity();

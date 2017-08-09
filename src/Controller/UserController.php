@@ -81,7 +81,11 @@ class UserController extends AppController{
 												]
 											
 											]	
-									])
+									])->contain([
+										'RegisteredUsers' => [
+											'fields' => ['RegisteredUsers.email']
+										]
+										])
 									->where(['Messages.sender' => $user_id]);
 								
 							
@@ -114,9 +118,12 @@ class UserController extends AppController{
 												]
 											
 											]	
-									])
-									->where(['Messages.receiver' => $user_id]);
-								
+									])->contain([
+										'RegisteredUsers' => [
+											'fields' => ['RegisteredUsers.email']
+										]
+										])
+									->where(['Messages.receiver' => $user_id]);								
 							
 			$this->set(compact('order_requests'));
 		}else{

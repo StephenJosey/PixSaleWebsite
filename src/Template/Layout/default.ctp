@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'PixSale';
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,17 +25,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-103973803-1', 'auto');
-      ga('send', 'pageview');
-    </script>
 
 
      <?php $app_root = dirname($_SERVER['SCRIPT_NAME']);?>
@@ -71,6 +60,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+        <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103973803-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 </head>
 <body class="body-wrapper">
     <div class="main-wrapper">
@@ -119,7 +118,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </div>
             <div class="searchBox">
                 <span class="input-group">
-                    <?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control', 'label' => false]); ?>
+                    <?php echo $this->Form->input('search', ['type' => 'text', 'class' => 'form-control', 'label' => false, 'maxlength' => '30']); ?>
                     <?php echo $this->Form->button(__("<i class='fa fa-search'></i>"), ['type'=>'submit', 'class' => 'input-group-addon']); ?>
                 </span>
             </div>
@@ -218,6 +217,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li><?= $this->Html->link(__("Profile"), ['controller' => 'User', 'action' => 'profile'])?></li>
                     <li><?= $this->Html->link(__("Your Products"), ['controller' => 'User', 'action' => 'index'])?></li>
                     <li><?= $this->Html->link(__("Your Orders"), ['controller' => 'User', 'action' => 'messages'])?></li>
+                    <li><?= $this->Html->link(__("Order Requests"), ['controller' => 'User', 'action' => 'orderRequests'])?></li>
                   </ul>
                 </li>
                 
@@ -229,13 +229,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </nav>
 
       </div>
-
-
-
-
-
-  
-
     <!-- BODY -->
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
@@ -257,7 +250,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <?php echo $this->Form->input('pass', ['type' => 'password',
                                 'templates' => ['inputContainer' => '{{content}}'], 'class' => 'form-control', 'label' => 'Password']); ?>
                     <br>
-                    <?php echo $this->Form->button(__('Login'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?>
+					
+                    <?php echo $this->Form->button(__('Login'), ['type'=>'submit', 'class' => 'btn btn-primary btn-block']); ?><br>
+					
+					<?= '<a data-dismiss="modal" data-toggle="modal" href="#signup" style = "padding-top:20px;"><span style = "color:#337ab7 !important;">No account? Click to register.</span></a>' ?>
               <?php echo $this->Form->end(); ?>
           </div>
         </div>
@@ -292,46 +288,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       </div>
     </div>
 </div>
-
-    <!-- PORDUCT QUICK VIEW MODAL -->
-    <div class="modal fade quick-view" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <div class="media">
-              <div class="media-left">
-                <img class="media-object" src= <?php echo "'$src'"; ?> alt="Image">
-              </div>
-              <div class="media-body">
-                <h2>Old Skool Navy</h2>
-                <h3>$149</h3>
-                <p>Classic sneaker from Vans. Cotton canvas and suede upper. Textile lining with heel stabilizer and ankle support. Contrasting laces. Sits on a classic waffle rubber sole.</p>
-                <span class="quick-drop">
-                  <select name="guiest_id3" id="guiest_id3" class="select-drop">
-                    <option value="0">Size</option>
-                    <option value="1">Size 1</option>
-                    <option value="2">Size 2</option>
-                    <option value="3">Size 3</option>
-                  </select>
-                </span>
-                <span class="quick-drop resizeWidth">
-                  <select name="guiest_id4" id="guiest_id4" class="select-drop">
-                    <option value="0">Qty</option>
-                    <option value="1">Qty 1</option>
-                    <option value="2">Qty 2</option>
-                    <option value="3">Qty 3</option>
-                  </select>
-                </span>
-                <div class="btn-area">
-                  <a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <footer>
                 <!-- COPY RIGHT -->
