@@ -17,6 +17,10 @@
     color: #404041;
 }
 
+.left-align {
+    text-align: left !important;
+}
+
 a {
     color: #0071BC;
     -webkit-transition: all 0.2s;

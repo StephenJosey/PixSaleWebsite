@@ -1,10 +1,19 @@
-<?php $this->assign("title", "Home");  ?>
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-
-    <ul class="side-nav">
-            <li class="heading"><?= __('Where do you want to go?') ?></li>
-            <li><?= $this->Html->link(__('About Us'), ['controller' => 'Home', 'action' => 'about']) ?></li>
-    </ul>
-</nav>
-<h2>This is our Home page!</h2>
+<div style="text-align:center" class="container">
+        <div class="bannercontainer bannerV4" style = "width:100% !important">
+          <div class="fullscreenbanner-container">
+            <div class="fullscreenbanner">
+              <ul>
+			  <?php foreach($media_items  as $media_item): 
+					$file_path = dirname($_SERVER['SCRIPT_NAME']). '/uploads/mediaitems/' . $media_item->file_path;
+				?> 
+					<li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3">
+					<img src="<?= (string)$file_path ?>" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">  
+                
+                </li>
+				<?php endforeach ;?> 
+          
+              </ul>
+            </div>
+          </div>
+        </div>
+</div>   

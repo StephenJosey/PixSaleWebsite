@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -43,6 +44,28 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Search',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Search',
+                'action' => 'index'
+            ],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'username', 'password' => 'pass']
+                ]
+            ]
+        ]);
+
+        $this->Auth->config('authenticate', [
+            'Basic' => ['userModel' => 'RegisteredUsers'],
+            'Form' => ['userModel' => 'RegisteredUsers']
+        ]);
+
+
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -60,10 +83,37 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
+        $this->loadComponent('Auth');
+        $this->loadComponent('Flash');
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
+
+        $searchForm = "";
+        $this->set('searchForm', $searchForm);
+		
+		//Get Categories
+        $categories = TableRegistry::get('Categories');
+        $categories = $categories->find('list', array( 
+            'fields' => array('id', 'category_name')));
+        $this->set(compact('categories'));
+		//Get Media Items
+	    $this->loadModel('MediaItems');
+		$media_items_query = $this->MediaItems->find();
+		$media_items = $media_items_query->select(['file_path']);		
+		$this->set(compact('media_items'));
+
+        if ($this->Auth->user()) {
+            $this->set('user', $this->Auth->user());
+            //echo $this->Auth->user('first_name');
+            $this->set('first_name', $this->Auth->user('first_name'));
+        }
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow();
     }
 }
